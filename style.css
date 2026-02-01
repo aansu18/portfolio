@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&family=JetBrains+Mono&display=swap');
+
+:root {
+    --bg: #0a0a0c;
+    --accent: #2de2b4;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+}
+
+/* Center Header Design */
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #16161a 0%, #0a0a0c 100%);
+}
+
+.status-indicator {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--accent);
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+header h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0;
+    background: linear-gradient(to bottom, #fff 40%, #555);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtext {
+    max-width: 600px;
+    margin: 20px auto 40px auto;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Attractive Artifact Button */
+.modern-artifact-btn {
+    position: relative;
+    padding: 15px 45px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.modern-artifact-btn:hover {
+    color: #000;
+    background: var(--accent);
+    box-shadow: 0 0 30px rgba(45, 226, 180, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-glow {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    top: 0;
+    left: -50px;
+    transform: skewX(-45deg);
+    transition: 0.5s;
+}
+
+.modern-artifact-btn:hover .btn-glow {
+    left: 150%;
+}/* Hero Layout */
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(45, 226, 180, 0.1);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 20px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* The Artifact Button - Liquid Effect */
+.artifact-btn {
+    position: relative;
+    padding: 18px 40px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 240px;
+    overflow: hidden;
+    border-radius: 4px;
+    border: none;
+    background: #222;
+    cursor: pointer;
+}
+
+.artifact-btn span {
+    position: relative;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 4px;
+    z-index: 1;
+}
+
+.artifact-btn .liquid {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 240px;
+    height: 240px;
+    background: var(--accent);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+    transition: 0.5s;
+}
+
+.artifact-btn .liquid::after,
+.artifact-btn .liquid::before {
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    background: #000;
+}
+
+.artifact-btn .liquid::before {
+    border-radius: 45%;
+    background: var(--bg);
+    animation: animate 5s linear infinite;
+}
+
+.artifact-btn .liquid::after {
+    border-radius: 40%;
+    background: rgba(10, 10, 12, 0.5);
+    animation: animate 10s linear infinite;
+}
+
+.artifact-btn:hover .liquid { top: -120px; }
+
+@keyframes animate {
+    0% { transform: translate(-50%, -75%) rotate(0deg); }
+    100% { transform: translate(-50%, -75%) rotate(360deg); }
+}
+
+/* Data Stream Visual Side */
+.hero-visual {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.data-stream {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    position: relative;
+    animation: stream 4s infinite linear;
+    opacity: 0.3;
+}
+
+.data-stream:nth-child(2) { animation-delay: 1s; }
+.data-stream:nth-child(3) { animation-delay: 2.5s; }
+
+@keyframes stream {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+.github-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.github-link:hover { color: var(--accent); }:root {
+    --bg: #0a0a0c;
+    --surface: #16161a;
+    --accent: #2de2b4; /* Mint Green */
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+}
+
+body {
+    background-color: var(--bg);
+    background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0);
+    background-size: 40px 40px; /* Subtle Data Grid */
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+}
+
+/* Nav Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 10%;
+    align-items: center;
+}
+
+.logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
+.logo span { color: var(--accent); }
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: 0.3s; }
+nav a:hover { color: var(--accent); }
+
+/* Hero Section */
+header {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.tagline {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 4.5rem; margin-bottom: 1rem; letter-spacing: -2px; }
+header p { max-width: 500px; color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem; }
+
+/* Buttons */
+.primary {
+    background: var(--accent);
+    border: none;
+    padding: 12px 28px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(45, 226, 180, 0.2); }
+
+/* Project Artifacts */
+.project-card {
+    background: var(--surface);
+    padding: 2rem;
+    border: 1px solid #24242b;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    background: #1c1c21;
+}
+
+.skill-card {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    padding: 10px;
+    border-bottom: 1px solid #24242b;
+}/* Custom Fonts and Variables */
+:root {
+    --primary-bg: #0b0e14;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --accent-color: #00d4ff;
+    --text-main: #e2e8f0;
+    --text-dim: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: radial-gradient(circle at top right, #1e293b, #0b0e14);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Navigation - Glass Effect */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background: rgba(11, 14, 20, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 30px; }
+nav a { 
+    color: var(--text-main); 
+    text-decoration: none; 
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+nav a:hover { color: var(--accent-color); }
+
+/* Hero Section */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight { color: var(--accent-color); text-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+
+header p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin-bottom: 2rem; }
+
+header button {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+header button:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+/* Section Styling */
+section { padding: 100px 10%; }
+h2 { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
+
+/* Skills Grid */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--glass-bg);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+}
+
+/* Project Cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card h3 { color: var(--accent-color); margin-bottom: 15px; }
+
+/* Contact/Footer */
+footer {
+    padding: 50px;
+    background: #06080c;
+    text-align: center;
+}
+
+.socials a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
